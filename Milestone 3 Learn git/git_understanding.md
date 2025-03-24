@@ -62,3 +62,5 @@ Staging prepares changes by adding them to the staging area, allowing us to revi
 
 ## What happens if two people edit the same file on different branches?
 When merging, a merge conflict will occur if changes overlap.Git will ask to resolve the conflict manually, keeping only one version of the changes.This needs to be resolved before the merge can be completed successfully.
+
+#
