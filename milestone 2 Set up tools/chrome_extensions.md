@@ -8,4 +8,4 @@ I installed,
 
 # What was the most useful thing you learned?
 
-I learned about the Profiler tab in React DevTools. It helps track component render times and find unnecessary re-renders. This makes it easier to spot performance issues and optimize components using React.memo(), useMemo(), and useCallback().
+I learned about the Profiler tab in React DevTools. It helps track component render times and find unnecessary re-renders. This makes it easier to spot performance issues and optimize components using React.memo(), useMemo(), and useCallback()
