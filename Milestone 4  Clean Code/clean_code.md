@@ -1,14 +1,14 @@
 # Understanding Clean code Principles
 
 ## Example of a messy code
-
+```js
 function sumEvenNumbers(numbers) {
 return numbers.reduce((sum, num) => num % 2 === 0 ? sum + num : sum, 0);
 }
 
 const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(sumEvenNumbers(numbersArray));
-
+```
 ## Its difficult to read because of:
 
 - Poor naming: x, y, z don’t describe their purpose.
@@ -16,14 +16,14 @@ console.log(sumEvenNumbers(numbersArray));
   -Inefficient structure: Could use reduce().
 
 # Cleaner and more structured
-
+```js
 - function sumEvenNumbers(numbers) {
   return numbers.reduce((sum, num) => num % 2 === 0 ? sum + num : sum, 0);
   }
 
 const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(sumEvenNumbers(numbersArray));
-
+```
 # Code Formatting & Style Guides
 
 ## Why is code formatting important?
@@ -63,7 +63,7 @@ Yes it made the code more readable by fixing issues like one line functions.
 - Mixing naming styles can create confusion for team members and reduce the uniformity of the codebase.
 
 eg of poorly named variables and functions:
-
+```js
 def fn1(lst, x):
 res = 0
 for i in range(len(lst)):
@@ -75,9 +75,9 @@ a = [5, 12, 7, 3, 15]
 b = 10
 c = fn1(a, b)
 print(c)
-
+```
 Refactored code:
-
+```js
 def sum_elements_above_threshold(numbers, threshold):
 total = 0
 for num in numbers:
@@ -101,8 +101,9 @@ x = [2, 4, 6]
 y = 3
 z = doStuff(x, y)
 print(z)
-
+```
 Refactored:
+```js
 def calculate_weighted_sum(numbers, multiplier):
 weighted_sum = 0
 for number in numbers:
@@ -113,7 +114,7 @@ values = [2, 4, 6]
 multiplier = 3
 result = calculate_weighted_sum(values, multiplier)
 print(result)
-
+```
 ## How did refactoring improve code readability?
 
 - It made the codes easier to understand at a glance since the variables and functions now convey their purpose.
