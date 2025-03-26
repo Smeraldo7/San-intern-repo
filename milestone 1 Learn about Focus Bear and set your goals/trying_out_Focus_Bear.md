@@ -1,7 +1,8 @@
 # first impression of the app:
+
 I was impressed by how well it is designed, with a smooth flow into the whole, new user set up (taking into account the distracting sites, providing videos on how things work, adding goals and times for habits etc)
 
-# Did you find anything difficult to understand: 
+# Did you find anything difficult to understand:
 
 No, I found it pretty easy to understand.
 
