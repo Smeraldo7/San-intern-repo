@@ -13,7 +13,7 @@ console.log(sumEvenNumbers(numbersArray));
 
 - Poor naming: x, y, z don’t describe their purpose.
 - No proper spacing or indentation
-  -Inefficient structure: Could use reduce().
+-Inefficient structure: Could use reduce().
 
 # Cleaner and more structured
 ```js
@@ -89,7 +89,9 @@ values = [5, 12, 7, 3, 15]
 limit = 10
 result = sum_elements_above_threshold(values, limit)
 print(result)
+```
 
+```Js
 eg 2:
 def doStuff(d, e):
 f = 0
@@ -127,7 +129,7 @@ print(result)
 
 
 Example of a relatively long function:
-\*
+```Js
 function crawl(node, returnArray,depth, maxValue, parentOffset){
     const convertedNode = {
         "name": node.name,
@@ -154,11 +156,11 @@ function crawl(node, returnArray,depth, maxValue, parentOffset){
 
 }
 
-\*
+```
 
 
 Refactored:
-\*
+```Js
 function convertNode(node, maxValue, parentOffset) {
     return {
         "name": node.name,
@@ -190,7 +192,7 @@ function crawl(node, returnArray, depth, maxValue, parentOffset) {
 
     return convertedNode;
 }
-\*
+```
 
 ## How did refactoring improve the structure of the code?
 - Before, the original crawl function was doing too much: converting nodes, managing the return array, handling depth, and managing recursion. But now The logic is broken into smaller, more manageable functions:
