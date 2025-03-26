@@ -9,4 +9,4 @@ I installed,
 
 # What was the most useful thing you learned?
 
-I learned that we can inspect and edit current props and state by selecting components that we want feom the tree, using the components tab offered by React Developer tools.
+I learned about the Profiler tab in React DevTools. It helps track component render times and find unnecessary re-renders. This makes it easier to spot performance issues and optimize components using React.memo(), useMemo(), and useCallback()
