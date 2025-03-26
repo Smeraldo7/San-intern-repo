@@ -86,3 +86,7 @@ I opened it in Merge editor and compared the differences and chose to ignore the
 ## What did you learn?
 
 I learned when merging conflicts occur and how to resolve them and that ignoring a line during the merge means it won’t be in the final version of main.
+
+# Advanced Git Commands & When to Use Them
+
+##
