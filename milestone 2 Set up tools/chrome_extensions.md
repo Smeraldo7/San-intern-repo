@@ -1,6 +1,7 @@
 # Which extensions did you install? Why?
 
 I installed,
+
 - React Developer Tools : To inspect and debug React components efficiently
 - Redux DevTools (debug Redux state): To debug and track changes in the redux state
 - A JSON Viewer: To pretty-print API responses for better readability
