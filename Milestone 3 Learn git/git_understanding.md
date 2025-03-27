@@ -89,4 +89,30 @@ I learned when merging conflicts occur and how to resolve them and that ignoring
 
 # Advanced Git Commands & When to Use Them
 
-##
+## What does each command do?
+- git checkout main -- <file> :
+ It will replace the specified file in the working directory with the version from the main branch. Any local changes to that file are discarded.
+
+
+- git cherry-pick <commit>:  
+ Used to apply a specific commit from another branch without merging the whole branch.
+
+- git log:
+ It displays the commit history, showing commit messages, authors, timestamps, and commit hashes.
+
+- git blame <file>:
+It shows line-by-line information about who last modified each line of a file and in which commit.
+
+## When would you use it in a real project (hint: these are all really important in long running projects with multiple developers)?
+
+- git checkout main -- <file> : Used when we want to discard local changes to a file and reset it to match main.
+AND if we accidentally modify a file and need to revert to the latest committed version from main.
+
+- git cherry-pick <commit>:  When we need to bring in a specific fix or feature from another branch without merging everything.
+
+- git log: when we need to track recent commits and understand the project's history.
+
+- git blame <file>: when we need to investigate a bug or regression to find out who made a particular change.
+
+## What surprised you while testing these commands?
+git checkout main -- <file> command wont work if we have staged (git add) the changes, we need to reset (git reset HEAD <file>) first.
