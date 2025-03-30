@@ -116,3 +116,14 @@ AND if we accidentally modify a file and need to revert to the latest committed 
 
 ## What surprised you while testing these commands?
 git checkout main -- <file> command wont work if we have staged (git add) the changes, we need to reset (git reset HEAD <file>) first.
+
+
+# Creating & Reviewing Pull Requests
+
+## Why are PRs important in a team workflow?
+
+
+## What makes a well-structured PR?
+
+
+## What did you learn from reviewing an open-source PR?

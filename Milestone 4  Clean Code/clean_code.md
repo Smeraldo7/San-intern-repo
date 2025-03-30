@@ -1,14 +1,16 @@
 # Understanding Clean code Principles
 
 ## Example of a messy code
+
 ```js
 function sumEvenNumbers(numbers) {
-return numbers.reduce((sum, num) => num % 2 === 0 ? sum + num : sum, 0);
+  return numbers.reduce((sum, num) => (num % 2 === 0 ? sum + num : sum), 0);
 }
 
 const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(sumEvenNumbers(numbersArray));
 ```
+
 ## Its difficult to read because of:
 
 - Poor naming: x, y, z don’t describe their purpose.
@@ -16,14 +18,16 @@ console.log(sumEvenNumbers(numbersArray));
   -Inefficient structure: Could use reduce().
 
 # Cleaner and more structured
+
 ```js
-- function sumEvenNumbers(numbers) {
-  return numbers.reduce((sum, num) => num % 2 === 0 ? sum + num : sum, 0);
-  }
+-function sumEvenNumbers(numbers) {
+  return numbers.reduce((sum, num) => (num % 2 === 0 ? sum + num : sum), 0);
+};
 
 const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(sumEvenNumbers(numbersArray));
 ```
+
 # Code Formatting & Style Guides
 
 ## Why is code formatting important?
@@ -63,6 +67,7 @@ Yes it made the code more readable by fixing issues like one line functions.
 - Mixing naming styles can create confusion for team members and reduce the uniformity of the codebase.
 
 eg of poorly named variables and functions:
+
 ```js
 def fn1(lst, x):
 res = 0
@@ -76,7 +81,9 @@ b = 10
 c = fn1(a, b)
 print(c)
 ```
+
 Refactored code:
+
 ```js
 def sum_elements_above_threshold(numbers, threshold):
 total = 0
@@ -102,7 +109,9 @@ y = 3
 z = doStuff(x, y)
 print(z)
 ```
+
 Refactored:
+
 ```js
 def calculate_weighted_sum(numbers, multiplier):
 weighted_sum = 0
@@ -115,6 +124,7 @@ multiplier = 3
 result = calculate_weighted_sum(values, multiplier)
 print(result)
 ```
+
 ## How did refactoring improve code readability?
 
 - It made the codes easier to understand at a glance since the variables and functions now convey their purpose.
@@ -123,11 +133,16 @@ print(result)
 
 ## Why is breaking down functions beneficial?
 
-
-
+- Improves readability.
+- Modular functions can be reused in different parts of the code.
+- Easier to locate and fix bugs in smaller, isolated functions.
+- Updating or modifying a specific functionality is more manageable.
+- Unit testing is more effective on small, independent functions.
+- Each function handles a specific task, making the code more structured.
 
 Example of a relatively long function:
-\*
+
+```Js
 function crawl(node, returnArray,depth, maxValue, parentOffset){
     const convertedNode = {
         "name": node.name,
@@ -154,11 +169,11 @@ function crawl(node, returnArray,depth, maxValue, parentOffset){
 
 }
 
-\*
-
+```
 
 Refactored:
-\*
+
+```Js
 function convertNode(node, maxValue, parentOffset) {
     return {
         "name": node.name,
@@ -190,26 +205,70 @@ function crawl(node, returnArray, depth, maxValue, parentOffset) {
 
     return convertedNode;
 }
-\*
+```
 
 ## How did refactoring improve the structure of the code?
+
 - Before, the original crawl function was doing too much: converting nodes, managing the return array, handling depth, and managing recursion. But now The logic is broken into smaller, more manageable functions:
 - convertNode: Handles the logic for converting a node's properties.
 - addToReturnArray: Manages the logic for adding nodes to the correct depth in the returnArray.
 - crawl: Focuses solely on recursion and calling the helper functions for specific tasks.
 - It is now easier to read and understand since each helper function has a single responsibility.
 
-
 # Commenting & Documentation
 
 ## When should you add comments?
+
 - When explaining complex logic.
 - Describing why, not what(If the reason behind a decision isn't clear)
 - Workarounds and hacks (If there's a temporary fix or an unusual approach)
 - Public APIs or libraries (Provide usage details in functions, methods, or classes)
 
 ## When should you avoid comments and instead improve the code?
+
 - If the code is self-explanatory, there's no need for a comment.
 - When the variable names make sense.
 - when a function is hard to understand, we should refactor it instead of adding comments.
 
+# Handling Errors & Edge Cases
+
+Eg of a function that doesn’t properly handle errors :
+
+```Js
+function getUserAge(user) {
+  return user.age.toFixed(2); // No validation, may throw an error
+}
+
+const input = prompt("Enter your age: ");
+const age = Number(input);
+console.log(getUserAge({ age }));
+```
+
+Refactored:
+
+```JS
+function getUserAge(user) {
+  if (!user || typeof user !== "object") throw new Error("Invalid user object"); // Guard clause
+  if (typeof user.age !== "number" || isNaN(user.age)) throw new Error("Age must be a valid number");
+
+  return user.age.toFixed(2); // Returns a string
+}
+
+try {
+  const input = prompt("Enter your age:");
+  const age = Number(input);
+
+  if (isNaN(age)) throw new Error("Invalid input. Please enter a valid number.");
+
+  console.log(getUserAge({ age }));
+} catch (err) {
+  console.error(err.message);
+}
+```
+
+## How does handling errors improve reliability?
+
+- By stopping unexpected inputs from breaking the app (preventing crashes).
+- By helping with debugging (logging errors)
+- By improving security by hiding sensitive info.
+- Enhancing UX by displaying friendly error messages instead of blank screens.
