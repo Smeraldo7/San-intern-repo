@@ -272,3 +272,52 @@ try {
 - By helping with debugging (logging errors)
 - By improving security by hiding sensitive info.
 - Enhancing UX by displaying friendly error messages instead of blank screens.
+
+
+# Refactoring Code for Simplicity:
+
+Eg of an overly complicated code:
+```Js
+
+function calculateTotal(cart, discountPercentage) {
+    let total = 0;
+    if (cart.length > 0) {
+        for (let i = 0; i < cart.length; i++) {
+            let item = cart[i];
+            if (item.quantity > 0) {
+                for (let j = 0; j < item.quantity; j++) {
+                    total += item.price;
+                }
+            }
+        }
+        if (discountPercentage > 0) {
+            let discountAmount = (total * discountPercentage) / 100;
+            total = total - discountAmount + discountAmount * 0;
+        }
+    } else {
+        total = 0;
+    }
+    return total;
+}
+```
+
+Refactored:
+```Js
+function calculateTotal(cart, discountPercentage) {
+    let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    let discountAmount = (total * discountPercentage) / 100;
+    return total - discountAmount;
+}
+```
+
+## What made the original code complex?
+
+- It had unnecessary Loops: Iterates over item.quantity instead of simply multiplying.
+- It had too many nested conditions that make it hard to read.
+- Redundant Calculations: The discountAmount * 0 does nothing.
+- It had some unnecessary Checks: The if (cart.length > 0) is redundant; an empty array wouldn't affect the logic.
+
+## How did refactoring improve it?
+- Using the reduce() got rid of the unnecessary loop and made the summation easier.
+- Removed Nested Conditionals since theres noo need to check for cart.length > 0 (reduce() handles empty arrays)
+- Removing redundant operations made the discount calculation simple.
