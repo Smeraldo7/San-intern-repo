@@ -122,8 +122,21 @@ git checkout main -- <file> command wont work if we have staged (git add) the ch
 
 ## Why are PRs important in a team workflow?
 
+- PRs ensure code is reviewed before merging, reducing bugs and improving maintainability.
+- Team members can provide feedback, learn from each other, and stay informed about changes.
+- Helps keep track of what changes were made, by whom, and why, making debugging and auditing easier.
+- Helps catch merge conflicts early and ensures smooth integration with the main branch.
+– Often triggers automated tests, linting, and security checks before merging.
 
 ## What makes a well-structured PR?
 
+- Clear Title & Description 
+- Should contain only related changes, making it easier to review and test. 
+– Adhering to team guidelines (e.g., formatting, naming conventions, best practices).
+- Including Tests (If applicable, adds or updates unit/integration tests to cover changes)
+- Linked to Relevant Issues/Tickets (References Jira, GitHub Issues, or other tracking tools for traceability).
+- Screenshots/GIFs for UI Changes :Provides visuals for front-end modifications to make reviews quicker.
+-  Grouping related changes in logical commits with clear messages.
+- Passes CI/CD Checks 
 
 ## What did you learn from reviewing an open-source PR?
