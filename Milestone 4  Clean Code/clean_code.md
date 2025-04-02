@@ -273,6 +273,66 @@ try {
 - By improving security by hiding sensitive info.
 - Enhancing UX by displaying friendly error messages instead of blank screens.
 
+# Avoiding Code Duplication
+
+Example react component with unnecessary repetition:
+```JSX
+function UserProfile(){
+    return(
+        <div>
+            <div className = "user-card">
+                <h2>Roronoa Zoro</h2>
+                <p>Email: zorojuro21@gmail.com</p>
+            </div>
+            <div className = "user-card">
+                <h2>Nico Robin</h2>
+                <p>Email: nicoya@gmail.com</p>
+            </div>
+            <div className = "user-card">
+                <h2>Vinsmoke Sanji</h2>
+                <p>Email: sanji3@gmail.com</p>
+            </div>
+        </div>
+        );
+}
+
+export default UserProfile;
+```
+Refactored using the DRY principle:
+```jsx
+function UserProfile(){
+    const users = [
+        {name: "Roronoa Zoro",Email: "zorojuro21@gmail.com"},
+        {name: "Nico Robin",Email: "nicoya@gmail.com"},
+        {name: "Vinsmoke Sanji",Email: "sanji3@gmail.com"},
+    ];
+
+    return(
+        <div>
+            {users.map((user, index)=>(
+                <div key = {index} className= "user-card">
+                    <h2>{user.name}</h2>
+                    <p>Email: {user.Email}</p>
+                </div>
+            ))}
+        </div>
+         );
+}
+
+export default UserProfile;
+```
+## Issues with Duplicated Code:
+- Repeated blocks of code makes the component harder to read and understand.
+- Every instance of the user card would have to be updated if the structure of it changes (like adding a new field).
+- Should manually add/update each repeated section if we want to add more users or change how the user cards are displayed. It is inefficient and error-prone.
+
+## How did refactoring improve maintainability?
+
+- By using .map() to iterate over an array of users, the repetition was eliminated. Now, each user card is created dynamically, reducing the need to manually repeat the same HTML structure.
+
+- All user card logic is abstracted into a single template. If we need to update how each user card looks (e.g., adding new fields or changing the layout), we just need to make changes in one place, making the code easier to update and test.
+
+- If more users are added to the array, the component will automatically adjust without needing any changes in the JSX. This makes it much easier to scale the app by adding or removing users from the list without editing the structure repeatedly.
 
 # Refactoring Code for Simplicity:
 
@@ -321,3 +381,4 @@ function calculateTotal(cart, discountPercentage) {
 - Using the reduce() got rid of the unnecessary loop and made the summation easier.
 - Removed Nested Conditionals since theres noo need to check for cart.length > 0 (reduce() handles empty arrays)
 - Removing redundant operations made the discount calculation simple.
+
