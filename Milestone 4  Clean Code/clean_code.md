@@ -15,7 +15,7 @@ console.log(sumEvenNumbers(numbersArray));
 
 - Poor naming: x, y, z don’t describe their purpose.
 - No proper spacing or indentation
-  -Inefficient structure: Could use reduce().
+-Inefficient structure: Could use reduce().
 
 # Cleaner and more structured
 
@@ -96,7 +96,9 @@ values = [5, 12, 7, 3, 15]
 limit = 10
 result = sum_elements_above_threshold(values, limit)
 print(result)
+```
 
+```Js
 eg 2:
 def doStuff(d, e):
 f = 0
