@@ -89,4 +89,54 @@ I learned when merging conflicts occur and how to resolve them and that ignoring
 
 # Advanced Git Commands & When to Use Them
 
-##
+## What does each command do?
+- git checkout main -- <file> :
+ It will replace the specified file in the working directory with the version from the main branch. Any local changes to that file are discarded.
+
+
+- git cherry-pick <commit>:  
+ Used to apply a specific commit from another branch without merging the whole branch.
+
+- git log:
+ It displays the commit history, showing commit messages, authors, timestamps, and commit hashes.
+
+- git blame <file>:
+It shows line-by-line information about who last modified each line of a file and in which commit.
+
+## When would you use it in a real project (hint: these are all really important in long running projects with multiple developers)?
+
+- git checkout main -- <file> : Used when we want to discard local changes to a file and reset it to match main.
+AND if we accidentally modify a file and need to revert to the latest committed version from main.
+
+- git cherry-pick <commit>:  When we need to bring in a specific fix or feature from another branch without merging everything.
+
+- git log: when we need to track recent commits and understand the project's history.
+
+- git blame <file>: when we need to investigate a bug or regression to find out who made a particular change.
+
+## What surprised you while testing these commands?
+git checkout main -- <file> command wont work if we have staged (git add) the changes, we need to reset (git reset HEAD <file>) first.
+
+
+# Creating & Reviewing Pull Requests
+
+## Why are PRs important in a team workflow?
+
+- PRs ensure code is reviewed before merging, reducing bugs and improving maintainability.
+- Team members can provide feedback, learn from each other, and stay informed about changes.
+- Helps keep track of what changes were made, by whom, and why, making debugging and auditing easier.
+- Helps catch merge conflicts early and ensures smooth integration with the main branch.
+– Often triggers automated tests, linting, and security checks before merging.
+
+## What makes a well-structured PR?
+
+- Clear Title & Description 
+- Should contain only related changes, making it easier to review and test. 
+– Adhering to team guidelines (e.g., formatting, naming conventions, best practices).
+- Including Tests (If applicable, adds or updates unit/integration tests to cover changes)
+- Linked to Relevant Issues/Tickets (References Jira, GitHub Issues, or other tracking tools for traceability).
+- Screenshots/GIFs for UI Changes :Provides visuals for front-end modifications to make reviews quicker.
+-  Grouping related changes in logical commits with clear messages.
+- Passes CI/CD Checks 
+
+## What did you learn from reviewing an open-source PR?
