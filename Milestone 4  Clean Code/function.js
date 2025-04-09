@@ -1,8 +1,4 @@
-/*function sum(a, b) {
-  return a + b;
-}
-module.exports = sum;
-*/
+
 
 function getUserAge(user) {
   if (user === null || typeof user !== 'object' || Array.isArray(user)) {
