@@ -15,7 +15,7 @@ console.log(sumEvenNumbers(numbersArray));
 
 - Poor naming: x, y, z don’t describe their purpose.
 - No proper spacing or indentation
--Inefficient structure: Could use reduce().
+  -Inefficient structure: Could use reduce().
 
 # Cleaner and more structured
 
@@ -278,6 +278,7 @@ try {
 # Avoiding Code Duplication
 
 Example react component with unnecessary repetition:
+
 ```JSX
 function UserProfile(){
     return(
@@ -300,30 +301,34 @@ function UserProfile(){
 
 export default UserProfile;
 ```
-Refactored using the DRY principle:
-```jsx
-function UserProfile(){
-    const users = [
-        {name: "Roronoa Zoro",Email: "zorojuro21@gmail.com"},
-        {name: "Nico Robin",Email: "nicoya@gmail.com"},
-        {name: "Vinsmoke Sanji",Email: "sanji3@gmail.com"},
-    ];
 
-    return(
-        <div>
-            {users.map((user, index)=>(
-                <div key = {index} className= "user-card">
-                    <h2>{user.name}</h2>
-                    <p>Email: {user.Email}</p>
-                </div>
-            ))}
+Refactored using the DRY principle:
+
+```jsx
+function UserProfile() {
+  const users = [
+    { name: 'Roronoa Zoro', Email: 'zorojuro21@gmail.com' },
+    { name: 'Nico Robin', Email: 'nicoya@gmail.com' },
+    { name: 'Vinsmoke Sanji', Email: 'sanji3@gmail.com' },
+  ];
+
+  return (
+    <div>
+      {users.map((user, index) => (
+        <div key={index} className="user-card">
+          <h2>{user.name}</h2>
+          <p>Email: {user.Email}</p>
         </div>
-         );
+      ))}
+    </div>
+  );
 }
 
 export default UserProfile;
 ```
+
 ## Issues with Duplicated Code:
+
 - Repeated blocks of code makes the component harder to read and understand.
 - Every instance of the user card would have to be updated if the structure of it changes (like adding a new field).
 - Should manually add/update each repeated section if we want to add more users or change how the user cards are displayed. It is inefficient and error-prone.
@@ -339,6 +344,7 @@ export default UserProfile;
 # Refactoring Code for Simplicity:
 
 Eg of an overly complicated code:
+
 ```Js
 
 function calculateTotal(cart, discountPercentage) {
@@ -364,6 +370,7 @@ function calculateTotal(cart, discountPercentage) {
 ```
 
 Refactored:
+
 ```Js
 function calculateTotal(cart, discountPercentage) {
     let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -376,11 +383,50 @@ function calculateTotal(cart, discountPercentage) {
 
 - It had unnecessary Loops: Iterates over item.quantity instead of simply multiplying.
 - It had too many nested conditions that make it hard to read.
-- Redundant Calculations: The discountAmount * 0 does nothing.
+- Redundant Calculations: The discountAmount \* 0 does nothing.
 - It had some unnecessary Checks: The if (cart.length > 0) is redundant; an empty array wouldn't affect the logic.
 
 ## How did refactoring improve it?
+
 - Using the reduce() got rid of the unnecessary loop and made the summation easier.
 - Removed Nested Conditionals since theres noo need to check for cart.length > 0 (reduce() handles empty arrays)
 - Removing redundant operations made the discount calculation simple.
 
+# Writing Unit Tests for Clean Code
+
+## How do unit tests help keep code clean?
+
+- By writing unit tests, bugs are caught early during development, preventing them from becoming larger issues later on.
+- Encourage writing modular and well-structured code, since the code is often written in smaller, more manageable units to be tested.
+- Unit tests can act as documentation, making it clear how different parts of the code are expected to behave.
+- As the codebase evolves, unit tests help ensure that new changes don’t break existing functionality, making the code more maintainable.
+
+## ## What issues did you find while testing?
+
+I wrote 7 tests for a function I mentioned in 'function.js' and at first one out of the 7 failed. I got the error:
+
+![alt text](image.png)
+
+I found that the error is happening because getUserAge is not correctly handling the case where user is null or an empty array []. Specifically, null and [] are being passed as the user object, but JavaScript doesn't handle those the way we expect when we check for an object.
+
+An empty array ([]) is an object in JavaScript, which causes the second check (typeof user.age !== 'number' || isNaN(user.age)) to be triggered instead of the first one (if (!user || typeof user !== 'object')).
+
+The solution was to adjust the first condition to handle both null and array types explicitly.
+so I changed it from
+
+```js
+if (!user || typeof user !== 'object') {
+  throw new Error('Invalid user object');
+}
+```
+
+to
+
+```js
+if (user === null || typeof user !== 'object' || Array.isArray(user)) {
+  throw new Error('Invalid user object');
+}
+```
+
+Then all the tests passed.
+![alt text](image-1.png)

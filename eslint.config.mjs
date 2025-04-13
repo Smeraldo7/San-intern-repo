@@ -25,4 +25,11 @@ export default defineConfig([
       },
     },
   },
+
+  {
+    env: {
+      jest: true,
+    },
+    plugins: ['jest'],
+  },
 ]);
