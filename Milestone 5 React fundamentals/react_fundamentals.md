@@ -84,3 +84,17 @@ setItems([...items, 'new item']);
 ```js
 setItems(items.filter((_, i) => i !== indexToDelete));
 ```
+
+# Navigation with React Router
+
+## What are the advantages of client-side routing?
+
+- Faster Navigation (No Full Page Reloads):Only part of the page updates which makes the experience feel smoother and more like a native app.
+
+- Better User Experience as the transitions between pages are instant, with no flicker or reset of the scroll position unless we want it.
+
+- Data and UI state (like a counter or form inputs) can persist while navigating between routes if stored in memory.
+
+- We can animate transitions, block navigation (e.g., warn users before leaving a form), and handle nested routes easily.
+
+- With libraries like React Router, the app logic, components, and routes can all live in one clean place without needing a separate backend routing system.
