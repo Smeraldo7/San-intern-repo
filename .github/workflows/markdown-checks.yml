@@ -1,0 +1,28 @@
+name: Markdown Checks
+
+on:
+  pull_request:
+    branches: [ main, master ]
+    paths: [ '**.md' ]
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Markdown Lint
+      uses: actionshub/markdownlint@2
+      with:
+        config_file: '.markdownlint.json'
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Install dependencies
+      run: npm install -g markdown-spellcheck
+    
+    - name: Spell Check
+      run: mdspell --en-us --ignore-numbers --ignore-acronyms --report "**/*.md"
