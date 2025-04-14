@@ -20,15 +20,13 @@
     "lint": "eslint . --fix",
     "format": "prettier --write .",
     "test": "jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "husky install"
   },
-
-"lint-staged": {
-  "*.js": "eslint --fix",
-  "*.ts": "eslint --fix",
-  "*.json": "prettier --write",
-  "*.md": "prettier --write"
-}
-
-
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.ts": "eslint --fix",
+    "*.json": "prettier --write",
+    "*.md": "prettier --write"
+  }
 }
