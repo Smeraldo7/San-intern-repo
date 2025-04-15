@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run markdownlint and cspell before commit
+# npx markdownlint '**/*.md' '!node_modules/**/*'
+# npx cspell '**/*.md'
