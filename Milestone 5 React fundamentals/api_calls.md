@@ -19,4 +19,4 @@
 - Handling it:
   - catch the timeout error and show a friendly message to the user, suggesting they check their internet connection or try again.
   - retry logic to automatically retry the request a few times before giving up.
-  - Use AbortController or Axios’ built-in cancellation mechanism to cancel requests if they’re taking too long.
+  - Use AbortController or Axios’ built-in cancellation mechanism to cancel requests if they’re taking too long
