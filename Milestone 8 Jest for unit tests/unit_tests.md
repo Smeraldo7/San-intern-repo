@@ -38,3 +38,20 @@ Once that was sorted, I had to make sure the tests for both sync actions (like r
 - Redux tests typically depend on tools like @reduxjs/toolkit, redux-mock-store, or configureStore, while React component tests rely on @testing-library/react and jest-dom for testing DOM APIs, React components, and hooks.
 - The main difference lies in the dependencies: Redux tests don't require a DOM, especially for testing reducers, whereas React component tests require a DOM environment (like jsdom in Jest) for testing the visual output, behavior, and event handling of components.
 - The tooling used in each case also differs, as Redux testing mainly involves state logic and updates, while React component testing is more focused on the interaction between the user and the UI.
+
+# Mocking API Calls in Jest
+
+## Why is it important to mock API calls in tests?
+
+- Avoid network dependency:Real API calls can fail due to network issues, rate limits, or server downtime.
+- Mocked tests run in milliseconds vs waiting on a real API.
+- Mocks return the same response every time, making tests reliable and reproducible.
+- We want to test our component’s logic, not the API’s behavior.
+- Easily test responses like timeouts, errors, or invalid data.
+
+## What are some common pitfalls when testing asynchronous code?
+
+- Forgetting to await async functions. This leads to false positives or flaky tests. We should always await things like waitFor(), findBy..., or custom async functions.
+- getByText fails immediately if the element isn’t present. Should use findByText or waitFor() instead for dynamic content.
+- Not wrapping updates in act().React warns when state updates aren’t wrapped in act().
+- Mock not behaving like the real function. The mock might return different data or throw unexpected errors if its not close to real-world behavior.
