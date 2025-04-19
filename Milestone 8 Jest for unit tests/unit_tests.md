@@ -23,3 +23,18 @@
 ## What challenges did you encounter when simulating user interaction?
 
 - Choosing the right query 'getByText' was a bit tricky because I had to experiment with other queries like getByRole or getByTestId to make the test more stable and user-like.
+
+# Testing Redux with Jest
+
+## What was the most challenging part of testing Redux?
+
+- The most challenging part of testing Redux was dealing with the module system and making sure everything was properly set up to handle both import/export and require/module.exports. I ran into issues where Jest couldn’t parse the ESModules by default, which caused errors like "Cannot use import statement outside a module." To fix that, I had to convert everything to CommonJS (require/module.exports) for the tests to work properly.
+
+Once that was sorted, I had to make sure the tests for both sync actions (like reducers) and async actions (like createAsyncThunk) were properly dispatched and handled in the store.
+
+## How do Redux tests differ from React component tests?
+
+- In Redux tests, pure functions like reducers and async logic such as thunks are tested, while React component tests focus on UI rendering and user interaction.
+- Redux tests typically depend on tools like @reduxjs/toolkit, redux-mock-store, or configureStore, while React component tests rely on @testing-library/react and jest-dom for testing DOM APIs, React components, and hooks.
+- The main difference lies in the dependencies: Redux tests don't require a DOM, especially for testing reducers, whereas React component tests require a DOM environment (like jsdom in Jest) for testing the visual output, behavior, and event handling of components.
+- The tooling used in each case also differs, as Redux testing mainly involves state logic and updates, while React component testing is more focused on the interaction between the user and the UI.

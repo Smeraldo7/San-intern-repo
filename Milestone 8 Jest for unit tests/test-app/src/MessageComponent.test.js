@@ -1,15 +1,18 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import MessageComponent from './MessageComponent';
+/**
+ * @jest-environment jsdom
+ */
+const React = require('react');
+const { render, screen, fireEvent } = require('@testing-library/react');
+require('@testing-library/jest-dom');
+const MessageComponent = require('./MessageComponent');
 
 test('renders the initial message', () => {
-  render(<MessageComponent />);
+  render(React.createElement(MessageComponent));
   expect(screen.getByText('Hello, Focus bear!')).toBeInTheDocument();
 });
 
 test('updates the message when button is clicked', () => {
-  render(<MessageComponent />);
+  render(React.createElement(MessageComponent));
   fireEvent.click(screen.getByText('Click me'));
   expect(screen.getByText('Button was clicked!')).toBeInTheDocument();
 });
