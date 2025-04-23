@@ -142,3 +142,8 @@ git checkout main -- <file> command wont work if we have staged (git add) the ch
 ## What did you learn from reviewing an open-source PR?
 
 - Providing context in a PR: Meaningful title and description to help reviewers understand the changes. The placeholder text in the description mentioned adding a summary of the changes and a checklist mentioning specific steps to be followed before submitting, such as running tests, formatting code, running linters and completing the contributor license agreement (CLA). This helps ensure consistency, maintainability, and compliance with project guidelines.
+
+# Evidence of using git commands:
+
+1. Git status
+   ![alt text](image.png)
