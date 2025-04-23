@@ -147,3 +147,13 @@ git checkout main -- <file> command wont work if we have staged (git add) the ch
 
 1. Git status
    ![alt text](image.png)
+
+2. git add:
+
+![alt text](image-1.png)
+
+3. git reset HEAD:
+   ![alt text](image-2.png)
+
+4. git commit:
+   ![alt text](image-3.png)
