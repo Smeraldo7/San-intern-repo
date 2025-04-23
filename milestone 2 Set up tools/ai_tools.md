@@ -14,3 +14,13 @@ chatGPT is very helpful when learning about new things, for example, I was learn
 - Useful in detecting bugs and vulnerabilities in large codebases and suggesting fixes.
 - when it helps with code completions and snippets.
 - When it helps in learning new technologies by providing examples and guidance.
+
+# Evidence of use of AI tools:
+
+1. Using GitHub copilot:
+
+![Image](https://github.com/user-attachments/assets/40512758-9cc5-4a74-9a20-18849dc74b28)
+
+2. Using ChatGPT to debug the issue with setting up CI workflow:
+
+![Image](https://github.com/user-attachments/assets/ebde0aa6-d944-46b0-bc62-b363cd28ce7f)
