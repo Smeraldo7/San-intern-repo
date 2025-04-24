@@ -18,5 +18,6 @@ A cool app to help people stay focused and get their daily stuff done!
 
 # Trying out the app
 
-![image](https://github.com/user-attachments/assets/1c71e59d-5a0e-4be8-8cca-8c9c7a011f12)
+
+![Image](https://github.com/user-attachments/assets/d9497a34-ed1c-4856-8f23-d03614d021b3)
 ![Image](https://github.com/user-attachments/assets/45627d8e-79b5-4438-a6d2-b61f1f216664)
