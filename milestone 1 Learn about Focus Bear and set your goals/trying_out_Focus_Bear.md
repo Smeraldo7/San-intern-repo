@@ -14,3 +14,9 @@ A cool app to help people stay focused and get their daily stuff done!
 
 - Making users able to add their own workout videos (ability to change some embedded videos)
 - Using a lighter shade of a color instead of white for the background
+
+
+# Trying out the app
+
+![image](https://github.com/user-attachments/assets/1c71e59d-5a0e-4be8-8cca-8c9c7a011f12)
+![Image](https://github.com/user-attachments/assets/45627d8e-79b5-4438-a6d2-b61f1f216664)
