@@ -30,3 +30,9 @@ Rely on own skills when:
 # Best Practice for Using AI at Focus Bear:
 
 Always reviewing, testing, and validating AI-generated code before integrating it into production to ensure security, performance, and maintainability.
+
+# Example usage of AI:
+I got help from AI in troubleshooting an error I got while configuring a power automate flow. This is the screenshot of that error and ChatGPT's assistance:
+
+![image](https://github.com/user-attachments/assets/d5682c37-8a96-4694-8cda-98e9eb6753c5)
+The flow ran successfully after I applied those changes.
